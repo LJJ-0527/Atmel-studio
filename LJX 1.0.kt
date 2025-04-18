@@ -292,7 +292,7 @@ int main (void)
 					PA11_high=1;
 					bz1=1;
 					bz2=0;
-					fz=1;tz=1;
+					fz=1;
 					zz=0;
 					port_pin_set_output_level(PIN_PB04,1);
 					port_pin_set_output_level(PIN_PB05,1);
@@ -301,6 +301,7 @@ int main (void)
 					LCD_Clear(WHITE); //清屏
 					GBK_Show_Str(60,33,240,16,"压缩结束",16,RED,B_Color,1);	//显示内码低字节
 					GBK_Show_Str(60,49,240,16,"反转复位",16,RED,B_Color,1);	//显示内码低字节
+					tz=1;
 					port_pin_set_output_level(PIN_PB04,1);
 					port_pin_set_output_level(PIN_PB05,0);
 				}
@@ -334,7 +335,6 @@ int main (void)
 				{
 					port_pin_set_output_level(PIN_PA22,1);
 					port_pin_set_output_level(PIN_PA23,1);
-					classify=0;
 				}
 			}
 			else if (classify==0&&tz==1)
@@ -346,6 +346,7 @@ int main (void)
 				{
 					port_pin_set_output_level(PIN_PA22,1);
 					port_pin_set_output_level(PIN_PA23,1);
+					classify=0;
 				}
 			}
 		}
@@ -453,6 +454,7 @@ void judge(void)
 	}
 }
 
+
 // ADC 转换函数
 void con_adc(void)
 {
@@ -486,4 +488,3 @@ void demould(void)
 	port_pin_set_output_level(PIN_PB04,1);
 	port_pin_set_output_level(PIN_PB05,1);
 }
-
