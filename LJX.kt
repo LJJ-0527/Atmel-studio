@@ -433,8 +433,6 @@ int main (void)
 	}
 }
 
-
-
 void judge(void)
 {
 	if (port_pin_get_input_level(PIN_PB13)==1)
